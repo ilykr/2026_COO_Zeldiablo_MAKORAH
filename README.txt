@@ -3,14 +3,14 @@
 ## Membres du groupe
 
 Liste des membres du projet :
-- Prenom Nom adresse@etu.univ-lorraine
-- Prenom Nom adresse@etu.univ-lorraine
-- Prenom Nom adresse@etu.univ-lorraine
-- Prenom Nom adresse@etu.univ-lorraine
+- Ilayda KOHRAN
+- Naïm MAAYOUFI 
+- Laïni AHAMADA
+- Youness G(?)
 
-Liste des adresses mail
+Liste des adresses mail :
 adresse@etu.univ-lorraine
-adresse@etu.univ-lorraine
+naim.maayoufi8@etu.univ-lorraine.fr
 adresse@etu.univ-lorraine
 adresse@etu.univ-lorraine
 
