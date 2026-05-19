@@ -9,10 +9,10 @@ Liste des membres du projet :
 - Youness G(?)
 
 Liste des adresses mail :
-adresse@etu.univ-lorraine
+korhan.ilayda6@etu.univ-lorraine.fr
 naim.maayoufi8@etu.univ-lorraine.fr
-adresse@etu.univ-lorraine
-adresse@etu.univ-lorraine
+adresse@etu.univ-lorraine.fr
+adresse@etu.univ-lorraine.fr
 
 ## Etat du projet
 
