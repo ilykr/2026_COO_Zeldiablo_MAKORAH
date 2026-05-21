@@ -1,3 +1,15 @@
+liste de fonctionnalités possibles :
+- affichage du labyrinthe
+- déplacement du personnage
+- position auto au début du personnage
+- detection d'une sortie de grille pour l'empecher
+- jeu qui continue tant qu'on quitte pas volontairement
+- bouton qui propose de continuer quand on finit le jeu
+- compteur de déplacements (au besoin)
+
+
+
+
 # Fonctionnalités prévues version 1
 
 - fonctionnalité 1 : nom
