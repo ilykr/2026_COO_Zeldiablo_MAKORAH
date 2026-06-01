@@ -7,7 +7,7 @@
     - critère 1 : Le labyrinthe par défaut est constitué d'une arène de taille 10*10
     - critère 2 : Le personnage est placé au centre de l'arène
     - critère 3 : Les monstres (s'il y en a) sont placés sur des cases vides (à adapter)
-  - responsables : [...]
+  - responsables : KORHAN
 
 - fonctionnalité 2 : collision avec les murs
   - descriptif texte : Lorsque le joueur demande à déplacer le personnage en direction d'un mur,
@@ -15,21 +15,21 @@
   - critères de validation :
     - critère 1 : La collision fonctionne dans les 4 directions
     - critère 2 : Si la case est vide, le personnage avance.
-  - responsables : [...]
+  - responsables : AHAMADA
 
 - fonctionnalité 3 : génération de monstres immobiles
   - descriptif texte : Au lancement du jeu, le jeu ajoute différents monstres dans l'environnement.
         Les monstres restent immobiles.
   - critères de validation :
     - critère 1 : Il est possible de construire un labyrinthe par défaut contenant quelques monstres
-            (le labyrinthe par défaut est à dénir).
+            (le labyrinthe par défaut est à définir).
     - critère 2 : Les monstres sont créés sur des cases vides.
     - critère 3 : Il n'est pas possible de générer des monstres sur des cases non vides (position du
             joueur, d'autres monstres ou de murs)
     - critère 4 : Les monstres doivent apparaitre dans l'interface graphique sous la forme d'un cercle rouge.
     - critère 5 : Les monstres ne se déplacent pas (mais attaquent éventuellement le héros s'il passe
             à proximité - cf taches attaque dans les parties suivantes).
-  - responsables : [...]
+  - responsables : MAAYOUFI
 
 # Bilan
 
