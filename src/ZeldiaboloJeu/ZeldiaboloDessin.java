@@ -20,7 +20,7 @@ public class ZeldiaboloDessin implements DessinJeu {
         int largeurCase = image.getWidth()/10;
         int hauteurCase = image.getHeight()/10;
 
-        g.setColor(Color.RED);
+        g.setColor(Color.GRAY);
         boolean[][] laby = jeu.laby.getMurs();
         for (int i = 0; i < laby.length; i++) {
             for (int j = 0; j < laby[i].length; j++) {
@@ -30,10 +30,31 @@ public class ZeldiaboloDessin implements DessinJeu {
             }
         }
 
+        //dessinner le hero
         g.setColor(Color.GREEN);
         int[] pos = { jeu.perso.getX(), jeu.perso.getY() };
-        g.fillOval(pos[0]*largeurCase, pos[1]*hauteurCase, 20, 20);
 
+        int largeurPerso = (int) (largeurCase * 0.65);
+        int hauteurPerso = (int) (hauteurCase * 0.65);
+
+        int offsetX = (largeurCase - largeurPerso) / 2;
+        int offsetY = (hauteurCase - hauteurPerso) / 2;
+
+        int pixelX = (pos[0] * largeurCase) + offsetX;
+        int pixelY = (pos[1] * hauteurCase) + offsetY;
+
+        g.fillOval(pixelX, pixelY, largeurPerso, hauteurPerso);
+
+        //dessinner les monstres
+        g.setColor(Color.RED);
+        for (int i = 0; i < jeu.monstres.toArray().length; i++) {
+            int[] pos2 = { jeu.monstres.get(i).getX(), jeu.monstres.get(i).getY() };
+
+            pixelX = (pos2[0] * largeurCase) + offsetX;
+            pixelY = (pos2[1] * hauteurCase) + offsetY;
+
+            g.fillOval(pixelX, pixelY, largeurPerso, hauteurPerso);
+        }
 
         //fin
         g.dispose();

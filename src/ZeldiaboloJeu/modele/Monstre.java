@@ -8,9 +8,11 @@ public class Monstre implements Personnage {
     private int x;
     private int y;
 
-    public Monstre(int hp, int atk) {
+    public Monstre(int x, int y, int hp, int atk) {
         this.hp = hp;
         this.atk = atk;
+        this.x = x;
+        this.y = y;
     }
 
     /**

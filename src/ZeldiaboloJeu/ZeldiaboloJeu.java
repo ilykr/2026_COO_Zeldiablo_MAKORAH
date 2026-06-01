@@ -3,7 +3,6 @@ package ZeldiaboloJeu;
 import ZeldiaboloJeu.modele.*;
 import moteurJeu.Commande;
 import moteurJeu.Jeu;
-
 import java.util.ArrayList;
 
 import static java.lang.reflect.Array.getChar;
@@ -11,6 +10,7 @@ import static java.lang.reflect.Array.getChar;
 public class ZeldiaboloJeu implements Jeu {
 
     public Hero perso;
+    public ArrayList<Monstre> monstres = new ArrayList<>();
     public Labyrinthe laby;
 
     public final static String HAUT = "Haut";
@@ -31,6 +31,12 @@ public class ZeldiaboloJeu implements Jeu {
             res = Labyrinthe.PJ;
         }
 
+        for (int i = 0; i< monstres.toArray().length; i++) {
+            if (this.monstres.get(i).getX() == x && this.monstres.get(i).getY() == y) {
+                res = Labyrinthe.MONSTER;
+            }
+        }
+
         return res;
     }
 
@@ -49,17 +55,24 @@ public class ZeldiaboloJeu implements Jeu {
 
     @Override
     public void evoluer(Commande c) {
-        // init des variables x y
+        // init des variables x y et monstre
         int x = 0;
         int y = 0;
+        boolean monstre = false;
 
         // si action, on calcule avec getSuivant et on change x et y
         int[] next = getSuivant(perso.getX(), perso.getY(), c);
         x = next[0];
         y = next[1];
 
+        for (int i = 0; i< monstres.toArray().length; i++) {
+            if (monstres.get(i).getX() == x && monstres.get(i).getY() == y) {
+                monstre = true;
+            }
+        }
+
         // si pas de mur
-        if (!laby.etreMur(x, y)) {
+        if (!laby.etreMur(x, y) && monstre == false) {
             perso.setX(x);
             perso.setY(y);
         }

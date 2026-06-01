@@ -9,6 +9,7 @@ public class Labyrinthe {
     public final static char MUR = '#';
     public final static char PJ = '@';
     public final static char VIDE = ' ';
+    public final static char MONSTER = '%';
 
     public boolean etreMur(int x, int y) {
         return murs[x][y];
