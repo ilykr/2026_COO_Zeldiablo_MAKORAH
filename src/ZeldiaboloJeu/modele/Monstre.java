@@ -1,0 +1,66 @@
+package ZeldiaboloJeu.modele;
+
+public class Monstre implements Personnage {
+    private int hp;
+    private int atk;
+    private int x;
+    private int y;
+
+    public Monstre(int hp, int atk) {
+        this.hp = hp;
+        this.atk = atk;
+    }
+
+    /**
+     * Méthode qui retourne les points de vie d'un monstre
+     * @return Points de vie
+     */
+    public int getHp() {
+        return hp;
+    }
+
+    /**
+     * Méthode qui retourne l'attaque d'une monstre
+     * @return Puissance d'attaque
+     */
+    public int getAtk() {
+        return atk;
+    }
+
+    /**
+     * Méthode qui change les points de vie d'un monstre
+     * @param num Nouveaux points de vie
+     */
+    public void setHp(int num) {
+        this.hp = num;
+    }
+
+    @Override
+    public int getX() {
+        return this.x;
+    }
+
+    @Override
+    public int getY() {
+        return this.y;
+    }
+
+    @Override
+    public void setX(int num) {
+        this.x = num;
+    }
+
+    @Override
+    public void setY(int num) {
+        this.y = num;
+    }
+
+    /**
+     * Méthode qui permet d'attaquer un autre Personnage
+     * @param p personnage qui se fait attaqué
+     */
+    public void attaquer(Personnage p) {
+        int num = p.getHp()-this.atk;
+        p.setHp(num);
+    }
+}
