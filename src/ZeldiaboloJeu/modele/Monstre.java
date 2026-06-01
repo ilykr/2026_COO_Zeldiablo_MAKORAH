@@ -39,21 +39,37 @@ public class Monstre implements Personnage {
         this.hp = num;
     }
 
+    /**
+     * Méthode qui renvoie la position X du monstre
+     * @return position X
+     */
     @Override
     public int getX() {
         return this.x;
     }
 
+    /**
+     * Méthode qui renvoie la position Y du monstre
+     * @return position Y
+     */
     @Override
     public int getY() {
         return this.y;
     }
 
+    /**
+     * Méthode qui change la position X du monstre
+     * @param num nouvelle position X
+     */
     @Override
     public void setX(int num) {
         this.x = num;
     }
 
+    /**
+     * Méthode qui change la position X du monstre
+     * @param num nouvelle position Y
+     */
     @Override
     public void setY(int num) {
         this.y = num;
@@ -61,10 +77,11 @@ public class Monstre implements Personnage {
 
     /**
      * Méthode qui permet d'attaquer un autre Personnage
-     * @param p personnage qui se fait attaqué
+     * @param p personnage qui se fait attaquer
      */
     public void attaquer(Personnage p) {
         int num = p.getHp()-this.atk;
         p.setHp(num);
+        System.out.println("Monstre attaque: -" + this.atk+"pv");
     }
 }

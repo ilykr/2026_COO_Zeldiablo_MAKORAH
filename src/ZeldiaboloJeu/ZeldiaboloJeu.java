@@ -18,6 +18,31 @@ public class ZeldiaboloJeu implements Jeu {
     public final static String DROITE = "Droite";
     public final static String GAUCHE = "Gauche";
 
+    public void attaque() {
+        boolean atk = false;
+
+        for (int i = 0; i < this.monstres.size(); i++) {
+            if (this.monstres.get(i).getHp() != 0) {
+                Monstre m = this.monstres.get(i);
+                int mX = m.getX();
+                int mY = m.getY();
+                if (getChar(mX,mY-1) == '@') { //check haut
+                    atk = true;
+                } else if (getChar(mX,mY+1) == '@') { //check bas
+                    atk = true;
+                } else if (getChar(mX+1,mY) == '@') { //check droite
+                    atk = true;
+                } else if (getChar(mX-1,mY) == '@') { //check gauche
+                    atk = true;
+                }
+            }
+            if (atk) {
+                this.monstres.get(i).attaquer(this.perso);
+                atk = false;
+            }
+        }
+    }
+
     public char getChar(int x, int y) {
         char res = ' ';
 
@@ -31,7 +56,7 @@ public class ZeldiaboloJeu implements Jeu {
             res = Labyrinthe.PJ;
         }
 
-        for (int i = 0; i< monstres.toArray().length; i++) {
+        for (int i = 0; i< monstres.size(); i++) {
             if (this.monstres.get(i).getX() == x && this.monstres.get(i).getY() == y) {
                 res = Labyrinthe.MONSTER;
             }
@@ -65,16 +90,18 @@ public class ZeldiaboloJeu implements Jeu {
         x = next[0];
         y = next[1];
 
-        for (int i = 0; i< monstres.toArray().length; i++) {
+        //verifier si la case suivante est un monstre
+        for (int i = 0; i< monstres.size(); i++) {
             if (monstres.get(i).getX() == x && monstres.get(i).getY() == y) {
                 monstre = true;
             }
         }
 
         // si pas de mur
-        if (!laby.etreMur(x, y) && monstre == false) {
+        if (!laby.etreMur(x, y) && !monstre) {
             perso.setX(x);
             perso.setY(y);
+            attaque();
         }
     }
 

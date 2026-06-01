@@ -34,11 +34,11 @@ public class Chargement {
                     if (c == Labyrinthe.MUR) {
                         jeu.laby.murs[x][y] = true;
                     } else if (c == Labyrinthe.PJ) {
-                        jeu.perso = new Hero(x,y,5,3);
+                        jeu.perso = new Hero(x,y,25,3);
                     } else if (c == Labyrinthe.VIDE) {
                     }
                     else if (c == Labyrinthe.MONSTER) {
-                        jeu.monstres.add(new Monstre(x,y,3,2));
+                        jeu.monstres.add(new Monstre(x,y,3,1));
                     } else {
                         throw new FichierIncorrectException("charactere inconnu" + c);
                     }
