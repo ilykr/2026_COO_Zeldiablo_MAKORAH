@@ -8,8 +8,8 @@ import static java.lang.reflect.Array.getChar;
 
 public class ZeldiaboloJeu {
 
-    Hero perso;
-    Labyrinthe laby;
+    public Hero perso;
+    public Labyrinthe laby;
 
     public final static String HAUT = "Haut";
     public final static String BAS = "Bas";

@@ -6,6 +6,13 @@ public class Hero implements Personnage{
     private int x;
     private int y;
 
+    public Hero(int x,int y, int hp, int atk){
+        this.x = x;
+        this.y = y;
+        this.hp = hp;
+        this.atk = atk;
+    }
+
     @Override
     public int getHp() {
         return this.hp;
