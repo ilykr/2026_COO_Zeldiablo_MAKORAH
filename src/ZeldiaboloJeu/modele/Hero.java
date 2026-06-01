@@ -1,5 +1,7 @@
 package ZeldiaboloJeu.modele;
 
+import moteurJeu.Commande;
+
 public class Hero implements Personnage{
     private int hp;
     private int atk;

@@ -1,5 +1,7 @@
 package ZeldiaboloJeu.modele;
 
+import moteurJeu.Commande;
+
 public interface Personnage {
     public int getHp();
     public int getAtk();

@@ -2,13 +2,14 @@
 
 import java.util.Scanner;
 
+import ZeldiaboloJeu.ActionInconnueException;
 import arkanoidJeu.ArkanoidDessin;
 import arkanoidJeu.ArkanoidJeu;
 import moteurJeu.MoteurGraphique;
 
 public class MainArkanoid {
 
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) throws InterruptedException, ActionInconnueException {
 
 		// creation du jeu particulier et de son afficheur
 		ArkanoidJeu jeu = new ArkanoidJeu();
@@ -24,7 +25,5 @@ public class MainArkanoid {
 		Scanner sc=new Scanner(System.in);
 		sc.nextLine();
 		System.exit(1);
-
 	}
-
 }

@@ -1,12 +1,14 @@
 package ZeldiaboloJeu;
 
 import ZeldiaboloJeu.modele.*;
+import moteurJeu.Commande;
+import moteurJeu.Jeu;
 
 import java.util.ArrayList;
 
 import static java.lang.reflect.Array.getChar;
 
-public class ZeldiaboloJeu {
+public class ZeldiaboloJeu implements Jeu {
 
     public Hero perso;
     public Labyrinthe laby;
@@ -32,26 +34,27 @@ public class ZeldiaboloJeu {
         return res;
     }
 
-    public static int[] getSuivant(int x, int y, String action) throws ActionInconnueException {
-        int[] i = {0};
-        if (action == HAUT) {
+    public static int[] getSuivant(int x, int y, Commande c) {
+        int[] i = {0, 0};
+        if (c.haut) {
             return new int[]{x, y - 1};
-        } else if (action == BAS) {
+        } else if (c.bas) {
             return new int[]{x, y + 1};
-        } else if (action == GAUCHE) {
+        } else if (c.gauche) {
             return new int[]{x - 1, y};
-        } else if (action == DROITE) {
+        } else if (c.droite) {
             return new int[]{x + 1, y};
-        } else throw new ActionInconnueException("Action inconnue");
+        } else return i;
     }
 
-    public void deplacerPerso(String action) throws ActionInconnueException {
+    @Override
+    public void evoluer(Commande c) {
         // init des variables x y
         int x = 0;
         int y = 0;
 
         // si action, on calcule avec getSuivant et on change x et y
-        int[] next = getSuivant(perso.getX(), perso.getY(), action);
+        int[] next = getSuivant(perso.getX(), perso.getY(), c);
         x = next[0];
         y = next[1];
 
