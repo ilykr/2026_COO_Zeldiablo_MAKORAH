@@ -1,6 +1,7 @@
-package ZeldiaboloJeu.modele;
+package ZeldiaboloJeu;
 
-import ZeldiaboloJeu.ZeldiaboloJeu;
+import ZeldiaboloJeu.modele.Hero;
+import ZeldiaboloJeu.modele.Labyrinthe;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
