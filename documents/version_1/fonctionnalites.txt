@@ -1,32 +1,35 @@
-liste de fonctionnalités possibles :
-- affichage du labyrinthe
-- déplacement du personnage
-- position auto au début du personnage
-- detection d'une sortie de grille pour l'empecher
-- jeu qui continue tant qu'on quitte pas volontairement
-- bouton qui propose de continuer quand on finit le jeu
-- compteur de déplacements (au besoin)
-
-
-
-
 # Fonctionnalités prévues version 1
 
-- fonctionnalité 1 : nom
-  - descriptif texte : [...]
+- fonctionnalité 1 : création d'un labyrinthe par défaut
+  - descriptif texte : Au lancement du jeu, un labyrinthe par défaut est créé et le personnage
+        est placé au centre de celui-ci.
   - critères de validation :
-    - critère 1 [...]
-    - critère 2 [...]
+    - critère 1 : Le labyrinthe par défaut est constitué d'une arène de taille 10*10
+    - critère 2 : Le personnage est placé au centre de l'arène
+    - critère 3 : Les monstres (s'il y en a) sont placés sur des cases vides (à adapter)
   - responsables : [...]
 
-- fonctionnalité 2 : nom
-  - descriptif texte : [...]
+- fonctionnalité 2 : collision avec les murs
+  - descriptif texte : Lorsque le joueur demande à déplacer le personnage en direction d'un mur,
+        le personnage reste bloqué et ne se déplace pas.
   - critères de validation :
-    - critère 1 [...]
-    - critère 2 [...]
+    - critère 1 : La collision fonctionne dans les 4 directions
+    - critère 2 : Si la case est vide, le personnage avance.
   - responsables : [...]
 
-[....]
+- fonctionnalité 3 : génération de monstres immobiles
+  - descriptif texte : Au lancement du jeu, le jeu ajoute différents monstres dans l'environnement.
+        Les monstres restent immobiles.
+  - critères de validation :
+    - critère 1 : Il est possible de construire un labyrinthe par défaut contenant quelques monstres
+            (le labyrinthe par défaut est à dénir).
+    - critère 2 : Les monstres sont créés sur des cases vides.
+    - critère 3 : Il n'est pas possible de générer des monstres sur des cases non vides (position du
+            joueur, d'autres monstres ou de murs)
+    - critère 4 : Les monstres doivent apparaitre dans l'interface graphique sous la forme d'un cercle rouge.
+    - critère 5 : Les monstres ne se déplacent pas (mais attaquent éventuellement le héros s'il passe
+            à proximité - cf taches attaque dans les parties suivantes).
+  - responsables : [...]
 
 # Bilan
 
