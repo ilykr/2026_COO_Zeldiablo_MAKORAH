@@ -68,11 +68,18 @@ public class Controleur implements KeyListener {
 			this.commandeEnCours.bas = true;
 			this.commandeARetourner.bas = true;
 			break;
+<<<<<<< HEAD
 			//
 		case ' ':
 			this.commandeEnCours.espace = true;
 			this.commandeARetourner.espace = true;
 			break;
+=======
+		// si on appuie sur 'e', commande joueur est recupObjet
+		case 'e':
+			this.commandeEnCours.recupObjet = true;
+			this.commandeARetourner.recupObjet = true;
+>>>>>>> 1e265567302ac770421d3bd4315ea877f0e7fee4
 		}
 
 	}
@@ -95,9 +102,14 @@ public class Controleur implements KeyListener {
 		case 's':
 			this.commandeEnCours.bas = false;
 			break;
+<<<<<<< HEAD
 		case ' ':
 			this.commandeEnCours.espace = false;
 			break;
+=======
+		case 'e':
+			this.commandeEnCours.recupObjet = false;
+>>>>>>> 1e265567302ac770421d3bd4315ea877f0e7fee4
 		}
 
 	}
