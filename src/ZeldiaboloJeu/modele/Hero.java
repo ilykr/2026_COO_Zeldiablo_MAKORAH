@@ -71,4 +71,9 @@ public class Hero implements Personnage{
             this.y --;
         }
     }
+	
+	public void prendreObjet(Objet o){
+		inv.add(o);
+	}
+}
 }
