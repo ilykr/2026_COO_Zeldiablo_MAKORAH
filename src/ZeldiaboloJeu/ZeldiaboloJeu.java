@@ -3,6 +3,7 @@ package ZeldiaboloJeu;
 import ZeldiaboloJeu.modele.*;
 import moteurJeu.Commande;
 import moteurJeu.Jeu;
+
 import java.util.ArrayList;
 
 import static java.lang.reflect.Array.getChar;
@@ -25,20 +26,19 @@ public class ZeldiaboloJeu implements Jeu {
         boolean atk = false;
 
         if (this.perso.getHp() != 0) {
-            int pX = this.perso.getX();
-            int pY = this.perso.getY();
-            if (getChar(pX, pY-1) == '%') { // check haut
-                atk = true;
-            } else if (getChar(pX,pY+1) == '%') { //check bas
-                atk = true;
-            } else if (getChar(pX+1,pY) == '%') { //check droite
-                atk = true;
-            } else if (getChar(pX-1,pY) == '%') { //check gauche
-                atk = true;
-            }
-            if (atk) {
-                for (int i = 0; i < this.monstres.size(); i++) {
-                    Monstre m = this.monstres.get(i);
+            for (Monstre m : monstres) {
+                int pX = this.perso.getX();
+                int pY = this.perso.getY();
+                if (m.getX() == pX && m.getY() == pY - 1 && m.getHp() > 0) { // check haut
+                    atk = true;
+                } else if (m.getX() == pX && m.getY() == pY + 1 && m.getHp() > 0) { //check bas
+                    atk = true;
+                } else if (m.getX() == pX + 1 && m.getY() == pY && m.getHp() > 0) { //check droite
+                    atk = true;
+                } else if (m.getX() == pX - 1 && m.getY() == pY && m.getHp() > 0) { //check gauche
+                    atk = true;
+                }
+                if (atk) {
                     this.perso.attaquer(m);
                     atk = false;
                 }
@@ -50,13 +50,13 @@ public class ZeldiaboloJeu implements Jeu {
                 Monstre m = this.monstres.get(i);
                 int mX = m.getX();
                 int mY = m.getY();
-                if (getChar(mX,mY-1) == '@') { //check haut
+                if (getChar(mX, mY - 1) == '@') { //check haut
                     atk = true;
-                } else if (getChar(mX,mY+1) == '@') { //check bas
+                } else if (getChar(mX, mY + 1) == '@') { //check bas
                     atk = true;
-                } else if (getChar(mX+1,mY) == '@') { //check droite
+                } else if (getChar(mX + 1, mY) == '@') { //check droite
                     atk = true;
-                } else if (getChar(mX-1,mY) == '@') { //check gauche
+                } else if (getChar(mX - 1, mY) == '@') { //check gauche
                     atk = true;
                 }
             }
@@ -97,7 +97,7 @@ public class ZeldiaboloJeu implements Jeu {
             res = Labyrinthe.PJ;
         }
 
-        for (int i = 0; i< monstres.size(); i++) {
+        for (int i = 0; i < monstres.size(); i++) {
             if (this.monstres.get(i).getX() == x && this.monstres.get(i).getY() == y) {
                 res = Labyrinthe.MONSTER;
             }
@@ -128,8 +128,7 @@ public class ZeldiaboloJeu implements Jeu {
 
     /**
      *
-     * @param c
-     *            commande utilisateur
+     * @param c commande utilisateur
      */
     @Override
     public void evoluer(Commande c) {
@@ -144,7 +143,7 @@ public class ZeldiaboloJeu implements Jeu {
         y = next[1];
 
         //verifier si la case suivante est un monstre
-        for (int i = 0; i< monstres.size(); i++) {
+        for (int i = 0; i < monstres.size(); i++) {
             if (monstres.get(i).getX() == x && monstres.get(i).getY() == y) {
                 monstre = true;
             }
@@ -153,7 +152,7 @@ public class ZeldiaboloJeu implements Jeu {
         // si pas de mur
         if (!laby.etreMur(x, y) && !monstre) {
             perso.deplacer(c);
-            for (Monstre m: monstres) {
+            for (Monstre m : monstres) {
                 if (m.getHp() > 0) {
                     attaque();
                     monstre = false;
@@ -164,12 +163,12 @@ public class ZeldiaboloJeu implements Jeu {
                     y = next[1];
 
                     //verifier si la case suivante est un monstre
-                    for (int i = 0; i< monstres.size(); i++) {
+                    for (int i = 0; i < monstres.size(); i++) {
                         if (monstres.get(i).getX() == x && monstres.get(i).getY() == y) {
                             monstre = true;
                         }
                     }
-                    if (!laby.etreMur(x,y) && !monstre) {
+                    if (!laby.etreMur(x, y) && !monstre) {
                         m.deplacer(move);
                     }
                 }
