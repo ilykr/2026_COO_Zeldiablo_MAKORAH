@@ -7,7 +7,7 @@
     - critère 1 : Lorsque le monstre est à côté du joueur, il attaque et ne se déplace pas. Par défaut,
         le Héros perd 1 point de vie.
     - critère 2 : Lorsque le monstre est loin du joueur, il n'attaque pas mais se déplace.
-  - responsables : ...
+  - responsables : Naïm
 
 - fonctionnalité 2 : attaque du joueur
   - descriptif texte : Lorsque le joueur appuie sur une touche donnée (par défaut la touche espace), il
@@ -31,9 +31,9 @@
     - critère 3 : A chaque évolution du jeu, le jeu ache dans la console l'inventaire du héros
     - critère 4 : Lorsqu'un joueur prend un objet, l'objet disparait du labyrinthe (et n'est plus
             affiché) mais apparait dans son inventaire.
-    - critère 5 : Les objets sont achés dans le labyrinthe tant qu'ils sont présents (sous la forme
+    - critère 5 : Les objets sont cachés dans le labyrinthe tant qu'ils sont présents (sous la forme
     d'un cercle noir)
-  - responsables : ...
+  - responsables : Laïni
 
 # Bilan
 

@@ -18,6 +18,9 @@ public class ZeldiaboloJeu implements Jeu {
     public final static String DROITE = "Droite";
     public final static String GAUCHE = "Gauche";
 
+    /**
+     *
+     */
     public void attaque() {
         boolean atk = false;
 
@@ -64,6 +67,23 @@ public class ZeldiaboloJeu implements Jeu {
         }
     }
 
+    /**
+     *
+     * @return
+     */
+    public Commande deplacementRandom() {
+        Commande c = new Commande();
+        int choix = (int) (Math.random() * 4);
+
+        switch (choix) {
+            case 0 -> c.haut = true;
+            case 1 -> c.bas = true;
+            case 2 -> c.gauche = true;
+            case 3 -> c.droite = true;
+        }
+        return c;
+    }
+
     public char getChar(int x, int y) {
         char res = ' ';
 
@@ -86,6 +106,13 @@ public class ZeldiaboloJeu implements Jeu {
         return res;
     }
 
+    /**
+     *
+     * @param x
+     * @param y
+     * @param c
+     * @return
+     */
     public static int[] getSuivant(int x, int y, Commande c) {
         int[] i = {0, 0};
         if (c.haut) {
@@ -99,6 +126,11 @@ public class ZeldiaboloJeu implements Jeu {
         } else return i;
     }
 
+    /**
+     *
+     * @param c
+     *            commande utilisateur
+     */
     @Override
     public void evoluer(Commande c) {
         // init des variables x y et monstre
@@ -120,17 +152,44 @@ public class ZeldiaboloJeu implements Jeu {
 
         // si pas de mur
         if (!laby.etreMur(x, y) && !monstre) {
-            perso.setX(x);
-            perso.setY(y);
-            attaque();
+            perso.deplacer(c);
+            for (Monstre m: monstres) {
+                if (m.getHp() > 0) {
+                    attaque();
+                    monstre = false;
+                    Commande move = deplacementRandom();
+                    // si action, on calcule avec getSuivant et on change x et y
+                    next = getSuivant(m.getX(), m.getY(), move);
+                    x = next[0];
+                    y = next[1];
+
+                    //verifier si la case suivante est un monstre
+                    for (int i = 0; i< monstres.size(); i++) {
+                        if (monstres.get(i).getX() == x && monstres.get(i).getY() == y) {
+                            monstre = true;
+                        }
+                    }
+                    if (!laby.etreMur(x,y) && !monstre) {
+                        m.deplacer(move);
+                    }
+                }
+            }
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean etreFini() {
         return false;
     }
 
 
+    /**
+     *
+     * @return
+     */
     public String toString() {
         return ("Jeu{" +
                 "perso=" + perso +
@@ -138,6 +197,10 @@ public class ZeldiaboloJeu implements Jeu {
                 '}');
     }
 
+    /**
+     *
+     * @return
+     */
     public String jeuToString() {
         StringBuilder result = new StringBuilder();
 

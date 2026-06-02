@@ -56,4 +56,19 @@ public class Hero implements Personnage{
         p.setHp(num);
         System.out.println("Le héro attaque: -" + this.atk+"pv" + "(Restant : " + num + ")");
     }
+
+    public void deplacer(Commande commande) {
+        if (commande.droite) {
+            this.x ++;
+        }
+        if (commande.gauche) {
+            this.x --;
+        }
+        if (commande.bas) {
+            this.y ++;
+        }
+        if (commande.haut) {
+            this.y --;
+        }
+    }
 }
