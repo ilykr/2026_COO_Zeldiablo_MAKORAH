@@ -106,7 +106,7 @@ public class ZeldiaboloJeu implements Jeu {
         if (!laby.etreMur(x, y) && !monstre) {
             perso.deplacer(c);
             for (Monstre m : monstres) {
-                perso.attaquer(m);
+                perso.attaquer(m, c);
             }
             //deplacement monstres
             for (Monstre m : monstres) {
