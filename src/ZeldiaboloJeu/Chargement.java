@@ -34,7 +34,7 @@ public class Chargement {
                     if (c == Labyrinthe.MUR) {
                         jeu.laby.murs[x][y] = true;
                     } else if (c == Labyrinthe.PJ) {
-                        jeu.perso = new Hero(x,y,25,3);
+                        jeu.perso = new Hero(x,y,20,1);
                     } else if (c == Labyrinthe.VIDE) {
                     }
                     else if (c == Labyrinthe.MONSTER) {

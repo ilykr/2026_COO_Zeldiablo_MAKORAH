@@ -1,3 +1,5 @@
+package ZeldiaboloJeu.modele;
+
 public class Objet{
 	
 	private String nom;
