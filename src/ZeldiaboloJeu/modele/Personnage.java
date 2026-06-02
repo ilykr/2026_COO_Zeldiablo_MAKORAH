@@ -11,5 +11,6 @@ public interface Personnage {
     public void setX(int num);
     public void setY(int num);
     public void attaquer(Personnage p);
+
     public void deplacer(Commande c);
 }
