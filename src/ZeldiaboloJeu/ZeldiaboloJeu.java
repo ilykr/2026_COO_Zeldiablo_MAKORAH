@@ -19,53 +19,6 @@ public class ZeldiaboloJeu implements Jeu {
     public final static String DROITE = "Droite";
     public final static String GAUCHE = "Gauche";
 
-    /**
-     *
-     */
-    public void attaque() {
-        boolean atk = false;
-
-        if (this.perso.getHp() != 0) {
-            for (Monstre m : monstres) {
-                int pX = this.perso.getX();
-                int pY = this.perso.getY();
-                if (m.getX() == pX && m.getY() == pY - 1 && m.getHp() > 0) { // check haut
-                    atk = true;
-                } else if (m.getX() == pX && m.getY() == pY + 1 && m.getHp() > 0) { //check bas
-                    atk = true;
-                } else if (m.getX() == pX + 1 && m.getY() == pY && m.getHp() > 0) { //check droite
-                    atk = true;
-                } else if (m.getX() == pX - 1 && m.getY() == pY && m.getHp() > 0) { //check gauche
-                    atk = true;
-                }
-                if (atk) {
-                    this.perso.attaquer(m);
-                    atk = false;
-                }
-            }
-        }
-
-        for (int i = 0; i < this.monstres.size(); i++) {
-            if (this.monstres.get(i).getHp() != 0) {
-                Monstre m = this.monstres.get(i);
-                int mX = m.getX();
-                int mY = m.getY();
-                if (getChar(mX, mY - 1) == '@') { //check haut
-                    atk = true;
-                } else if (getChar(mX, mY + 1) == '@') { //check bas
-                    atk = true;
-                } else if (getChar(mX + 1, mY) == '@') { //check droite
-                    atk = true;
-                } else if (getChar(mX - 1, mY) == '@') { //check gauche
-                    atk = true;
-                }
-            }
-            if (atk) {
-                this.monstres.get(i).attaquer(this.perso);
-                atk = false;
-            }
-        }
-    }
 
     /**
      *
@@ -153,8 +106,11 @@ public class ZeldiaboloJeu implements Jeu {
         if (!laby.etreMur(x, y) && !monstre) {
             perso.deplacer(c);
             for (Monstre m : monstres) {
+                perso.attaquer(m);
+            }
+            //deplacement monstres
+            for (Monstre m : monstres) {
                 if (m.getHp() > 0) {
-                    attaque();
                     monstre = false;
                     Commande move = deplacementRandom();
                     // si action, on calcule avec getSuivant et on change x et y
@@ -170,6 +126,7 @@ public class ZeldiaboloJeu implements Jeu {
                     }
                     if (!laby.etreMur(x, y) && !monstre) {
                         m.deplacer(move);
+                        m.attaquer(this.perso);
                     }
                 }
             }

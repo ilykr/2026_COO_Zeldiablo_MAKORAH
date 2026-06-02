@@ -52,9 +52,26 @@ public class Hero implements Personnage{
 
     @Override
     public void attaquer(Personnage p) {
-        int num = p.getHp()-this.atk;
-        p.setHp(num);
-        System.out.println("Le héro attaque: -" + this.atk+"pv" + "(Restant : " + num + ")");
+        boolean adjacent = false;
+        if (getHp() > 0) {
+            int pX = getX();
+            int pY = getY();
+            if (p.getX() == pX && p.getY() == pY - 1 && p.getHp() > 0) { // check haut
+                adjacent = true;
+            } else if (p.getX() == pX && p.getY() == pY + 1 && p.getHp() > 0) { //check bas
+                adjacent = true;
+            } else if (p.getX() == pX + 1 && p.getY() == pY && p.getHp() > 0) { //check droite
+                adjacent = true;
+            } else if (p.getX() == pX - 1 && p.getY() == pY && p.getHp() > 0) { //check gauche
+                adjacent = true;
+            }
+            if (adjacent) {
+                int num = p.getHp()-this.atk;
+                p.setHp(num);
+                System.out.println("Le héro attaque: -" + this.atk+"pv" + "(Restant : " + num + ")");
+                adjacent = false;
+            }
+        }
     }
 
     public void deplacer(Commande commande) {
@@ -71,9 +88,5 @@ public class Hero implements Personnage{
             this.y --;
         }
     }
-	
-	public void prendreObjet(Objet o){
-		inv.add(o);
-	}
-}
+
 }
