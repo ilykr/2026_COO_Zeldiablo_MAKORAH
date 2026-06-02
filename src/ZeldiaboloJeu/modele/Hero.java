@@ -51,10 +51,12 @@ public class Hero implements Personnage{
     }
 
     @Override
-    public void attaquer(Personnage p) {
-        int num = p.getHp()-this.atk;
-        p.setHp(num);
-        System.out.println("Le héro attaque: -" + this.atk+"pv" + "(Restant : " + num + ")");
+    public void attaquer(Personnage p, Commande commande) {
+        if (commande.espace) {
+            int num = p.getHp()-this.atk;
+            p.setHp(num);
+            System.out.println("Le héro attaque: -" + this.atk+"pv" + "(Restant pour le monstre : " + num + ")");
+        }
     }
 
     public void deplacer(Commande commande) {

@@ -82,7 +82,7 @@ public class Monstre implements Personnage {
     public void attaquer(Personnage p) {
         int num = p.getHp()-this.atk;
         p.setHp(num);
-        System.out.println("Monstre attaque: -" + this.atk+"pv" + "(Restant : " + num + ")");
+        System.out.println("Monstre attaque: -" + this.atk+"pv" + "(Restant pour le héro : " + num + ")");
     }
 
     public void deplacer(Commande commande) {
