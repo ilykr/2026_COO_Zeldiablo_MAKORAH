@@ -54,5 +54,6 @@ public class Hero implements Personnage{
     public void attaquer(Personnage p) {
         int num = p.getHp()-this.atk;
         p.setHp(num);
+        System.out.println("Le héro attaque: -" + this.atk+"pv" + "(Restant : " + num + ")");
     }
 }

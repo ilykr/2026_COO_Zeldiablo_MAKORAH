@@ -21,6 +21,27 @@ public class ZeldiaboloJeu implements Jeu {
     public void attaque() {
         boolean atk = false;
 
+        if (this.perso.getHp() != 0) {
+            int pX = this.perso.getX();
+            int pY = this.perso.getY();
+            if (getChar(pX, pY-1) == '%') { // check haut
+                atk = true;
+            } else if (getChar(pX,pY+1) == '%') { //check bas
+                atk = true;
+            } else if (getChar(pX+1,pY) == '%') { //check droite
+                atk = true;
+            } else if (getChar(pX-1,pY) == '%') { //check gauche
+                atk = true;
+            }
+            if (atk) {
+                for (int i = 0; i < this.monstres.size(); i++) {
+                    Monstre m = this.monstres.get(i);
+                    this.perso.attaquer(m);
+                    atk = false;
+                }
+            }
+        }
+
         for (int i = 0; i < this.monstres.size(); i++) {
             if (this.monstres.get(i).getHp() != 0) {
                 Monstre m = this.monstres.get(i);
