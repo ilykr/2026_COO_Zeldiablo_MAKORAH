@@ -3,6 +3,7 @@ package ZeldiaboloJeu;
 import ZeldiaboloJeu.modele.Hero;
 import ZeldiaboloJeu.modele.Labyrinthe;
 import ZeldiaboloJeu.modele.Monstre;
+import ZeldiaboloJeu.modele.Objet;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -36,6 +37,9 @@ public class Chargement {
                     } else if (c == Labyrinthe.PJ) {
                         jeu.perso = new Hero(x,y,20,1);
                     } else if (c == Labyrinthe.VIDE) {
+                    }
+                    else if (c == Labyrinthe.OBJ) {
+                        jeu.objets.add(new Objet(x,y));
                     }
                     else if (c == Labyrinthe.MONSTER) {
                         jeu.monstres.add(new Monstre(x,y,3,1));

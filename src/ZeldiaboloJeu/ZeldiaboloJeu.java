@@ -13,6 +13,7 @@ public class ZeldiaboloJeu implements Jeu {
     public Hero perso;
     public ArrayList<Monstre> monstres = new ArrayList<>();
     public Labyrinthe laby;
+    public ArrayList<Objet> objets = new ArrayList<>();
 
     public final static String HAUT = "Haut";
     public final static String BAS = "Bas";
