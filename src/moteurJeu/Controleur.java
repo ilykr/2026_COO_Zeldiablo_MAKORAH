@@ -68,6 +68,10 @@ public class Controleur implements KeyListener {
 			this.commandeEnCours.bas = true;
 			this.commandeARetourner.bas = true;
 			break;
+		// si on appuie sur 'e', commande joueur est recupObjet
+		case 'e':
+			this.commandeEnCours.recupObjet = true;
+			this.commandeARetourner.recupObjet = true;
 		}
 
 	}
@@ -90,6 +94,8 @@ public class Controleur implements KeyListener {
 		case 's':
 			this.commandeEnCours.bas = false;
 			break;
+		case 'e':
+			this.commandeEnCours.recupObjet = false;
 		}
 
 	}
