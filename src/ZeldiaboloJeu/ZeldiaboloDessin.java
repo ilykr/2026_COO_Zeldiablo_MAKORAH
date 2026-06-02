@@ -17,11 +17,14 @@ public class ZeldiaboloDessin implements DessinJeu {
     @Override
     public void dessiner(BufferedImage image) {
         Graphics2D g= (Graphics2D) image.getGraphics();
-        int largeurCase = image.getWidth()/10;
-        int hauteurCase = image.getHeight()/10;
 
         g.setColor(Color.GRAY);
         boolean[][] laby = jeu.laby.getMurs();
+        int colonnes = laby.length;
+        int lignes = laby[0].length;
+        int largeurCase = image.getWidth()/colonnes;
+        int hauteurCase = image.getHeight()/lignes;
+
         for (int i = 0; i < laby.length; i++) {
             for (int j = 0; j < laby[i].length; j++) {
                 if (laby[i][j]) {

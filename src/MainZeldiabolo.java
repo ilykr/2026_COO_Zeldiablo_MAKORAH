@@ -9,12 +9,17 @@ import java.io.IOException;
 public class MainZeldiabolo {
     static void main(String[] args) {
         try {
-            ZeldiaboloJeu jeu = Chargement.chargerJeu("documents/niveaux/default.txt");
+            ZeldiaboloJeu jeu = Chargement.chargerJeu("documents/niveaux/niveau1.txt");
             System.out.println(jeu.jeuToString());
             ZeldiaboloDessin dessin = new ZeldiaboloDessin(jeu);
+            int colonnes = jeu.laby.getMurs().length;
+            int lignes = jeu.laby.getMurs()[0].length;
+            int tailleCase = 40;
+            int largeurFenetre = colonnes * tailleCase;
+            int hauteurFenetre = lignes * tailleCase;
 
             MoteurGraphique moteur = new MoteurGraphique(jeu, dessin);
-            moteur.lancerJeu(400,400);
+            moteur.lancerJeu(largeurFenetre,hauteurFenetre);
 
         } catch (IOException e) {
             throw new RuntimeException(e);
