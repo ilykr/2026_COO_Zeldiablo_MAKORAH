@@ -2,13 +2,16 @@ package ZeldiaboloJeu.modele;
 
 import moteurJeu.Commande;
 
-public class Hero implements Personnage{
+import java.util.ArrayList;
+
+public class Hero implements Personnage {
     private int hp;
     private int atk;
     private int x;
     private int y;
+    private ArrayList<Objet> inv = new ArrayList<>();
 
-    public Hero(int x,int y, int hp, int atk){
+    public Hero(int x, int y, int hp, int atk) {
         this.x = x;
         this.y = y;
         this.hp = hp;
@@ -52,41 +55,27 @@ public class Hero implements Personnage{
 
     @Override
     public void attaquer(Personnage p) {
-        boolean adjacent = false;
-        if (getHp() > 0) {
-            int pX = getX();
-            int pY = getY();
-            if (p.getX() == pX && p.getY() == pY - 1 && p.getHp() > 0) { // check haut
-                adjacent = true;
-            } else if (p.getX() == pX && p.getY() == pY + 1 && p.getHp() > 0) { //check bas
-                adjacent = true;
-            } else if (p.getX() == pX + 1 && p.getY() == pY && p.getHp() > 0) { //check droite
-                adjacent = true;
-            } else if (p.getX() == pX - 1 && p.getY() == pY && p.getHp() > 0) { //check gauche
-                adjacent = true;
-            }
-            if (adjacent) {
-                int num = p.getHp()-this.atk;
-                p.setHp(num);
-                System.out.println("Le héro attaque: -" + this.atk+"pv" + "(Restant : " + num + ")");
-                adjacent = false;
-            }
-        }
+        int num = p.getHp() - this.atk;
+        p.setHp(num);
+        System.out.println("Le héro attaque: -" + this.atk + "pv" + "(Restant : " + num + ")");
     }
 
     public void deplacer(Commande commande) {
         if (commande.droite) {
-            this.x ++;
+            this.x++;
         }
         if (commande.gauche) {
-            this.x --;
+            this.x--;
         }
         if (commande.bas) {
-            this.y ++;
+            this.y++;
         }
         if (commande.haut) {
-            this.y --;
+            this.y--;
         }
     }
 
+    public void prendreObjet(Objet o) {
+        inv.add(o);
+    }
 }

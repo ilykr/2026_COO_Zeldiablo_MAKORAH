@@ -9,7 +9,19 @@
     - critère 2 : Lorsque le monstre est loin du joueur, il n'attaque pas mais se déplace.
   - responsables : Naïm
 
-- fonctionnalité 2 : attaque du joueur
+- fonctionnalité 2 : déplacement aléatoire des monstres
+  - descriptif texte : Régulièrement, le jeu demande aux monstres de se déplacer dans une direction aléatoire.
+  - critères de validation :
+    - critère 1 : A chaque évolution du jeu, que le joueur se déplace ou non, les monstres se déplacent.
+    - critère 2 : Les monstres sont bloqués par les obstacles. S'ils ont choisi de se diriger vers un
+        obstacle (mur, joueur, ...), leur mouvement est alors annulé (sauf s'il s'agit de fantômes).
+    - critère 3 : Deux monstres ou un monstre et un joueur ne peuvent pas se trouver sur la même case
+            (Si la tache Collision entre monstre est fonctionnelle).
+    - critère 4 : A chaque évolution, tous les monstres tentent de se déplacer.
+    - critère 5 : L'interface graphique se met à jour en fonction des déplacements des Monstres.
+  - responsables : Naïm
+
+- fonctionnalité 3 : attaque du joueur
   - descriptif texte : Lorsque le joueur appuie sur une touche donnée (par défaut la touche espace), il
         effectue une attaque contre les monstres qui se trouvent à côté de lui.
   - critères de validation :
@@ -18,9 +30,9 @@
     - critère 3 : TOUS les monstres éloignés du joueur ne subissent pas de dégâts.
     - critère 4 : S'il n'y a aucun monstre autour du joueur, l'attaque à quand même lieu et empêche
     le déplacement du joueur, mais les monstres ne prennent pas de dégâts.
-  - responsables : ...
+  - responsables : Ilayda
 
-- fonctionnalité 3 : inventaire
+- fonctionnalité 4 : inventaire
   - descriptif texte : Des objets (sans utilité pour le moment) sont disposés dans des cases vides
   du labyrinthe, lorsque le héros appuie sur la touche d'utilisation ("E" par défaut), il récupère
   les objets de la case où il se trouve et les ajoute dans son inventaire.

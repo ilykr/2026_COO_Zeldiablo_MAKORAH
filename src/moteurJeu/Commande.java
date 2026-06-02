@@ -15,7 +15,11 @@ public class Commande {
 	public boolean droite;
 	public boolean haut;
 	public boolean bas;
+<<<<<<< HEAD
+	public boolean espace;
+=======
 	public boolean recupObjet;
+>>>>>>> 1e265567302ac770421d3bd4315ea877f0e7fee4
 
 	public Commande()
 	{
@@ -33,7 +37,11 @@ public class Commande {
 		this.haut=commandeACopier.haut;
 		this.gauche=commandeACopier.gauche;
 		this.droite=commandeACopier.droite;
+<<<<<<< HEAD
+		this.espace=commandeACopier.espace;
+=======
 		this.recupObjet = commandeACopier.recupObjet;
+>>>>>>> 1e265567302ac770421d3bd4315ea877f0e7fee4
 	}
 	
 }
