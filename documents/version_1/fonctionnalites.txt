@@ -34,3 +34,41 @@
 # Bilan
 
 - Quelles fonctionnalités est validée ?
+
+# Fonctionnalités prévues version 2
+
+- fonctionnalité 1 : attaque des monstres
+  - descriptif texte : Lorsqu'un monstre doit agir, si le monstre se trouve à coté du héros, alors il ne se
+        déplace pas mais il attaque celui-ci.
+  - critères de validation :
+    - critère 1 : Lorsque le monstre est à côté du joueur, il attaque et ne se déplace pas. Par défaut,
+        le Héros perd 1 point de vie.
+    - critère 2 : Lorsque le monstre est loin du joueur, il n'attaque pas mais se déplace.
+  - responsables : ...
+
+- fonctionnalité 2 : attaque du joueur
+  - descriptif texte : Lorsque le joueur appuie sur une touche donnée (par défaut la touche espace), il
+        effectue une attaque contre les monstres qui se trouvent à côté de lui.
+  - critères de validation :
+    - critère 1 : L'attaque a effectivement lieu quand le joueur appuie sur la touche.
+    - critère 2 : TOUS les monstres à côté du joueur prennent un point de dégât.
+    - critère 3 : TOUS les monstres éloignés du joueur ne subissent pas de dégâts.
+    - critère 4 : S'il n'y a aucun monstre autour du joueur, l'attaque à quand même lieu et empêche
+    le déplacement du joueur, mais les monstres ne prennent pas de dégâts.
+  - responsables : ...
+
+- fonctionnalité 3 : inventaire
+  - descriptif texte : Des objets (sans utilité pour le moment) sont disposés dans des cases vides
+  du labyrinthe, lorsque le héros appuie sur la touche d'utilisation ("E" par défaut), il récupère
+  les objets de la case où il se trouve et les ajoute dans son inventaire.
+  - critères de validation :
+    - critère 1 : L'inventaire est de taille innie.
+    - critère 2 : Lorsque le joueur cherche à prendre un objet alors qu'il n'y a rien sur la case où
+            il se trouve, rien ne se passe.
+    - critère 3 : A chaque évolution du jeu, le jeu ache dans la console l'inventaire du héros
+    - critère 4 : Lorsqu'un joueur prend un objet, l'objet disparait du labyrinthe (et n'est plus
+            affiché) mais apparait dans son inventaire.
+    - critère 5 : Les objets sont achés dans le labyrinthe tant qu'ils sont présents (sous la forme
+    d'un cercle noir)
+  - responsables : ...
+
