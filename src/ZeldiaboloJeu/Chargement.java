@@ -25,6 +25,7 @@ public class Chargement {
             ZeldiaboloJeu jeu = new ZeldiaboloJeu();
             jeu.laby = new Labyrinthe();
             jeu.laby.murs = new boolean[largMax][lignes.size()];
+            jeu.laby.barrieres = new boolean[largMax][lignes.size()];
             for (int y = 0; y < lignes.size(); y++) {
                 ligne = lignes.get(y);
                 for (int x = 0; x < ligne.length(); x++) {
@@ -42,6 +43,8 @@ public class Chargement {
                         jeu.monstres.add(new Monstre(x,y,3,1));
                     } else if (c == Labyrinthe.FANT) {
                         jeu.monstres.add(new Fantome(x,y, 3, 1));
+                    } else if (c == Labyrinthe.BAR) {
+                        jeu.laby.barrieres[x][y] = true;
                     } else {
                         throw new FichierIncorrectException("charactere inconnu" + c);
                     }

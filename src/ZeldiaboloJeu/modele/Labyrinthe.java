@@ -5,6 +5,7 @@ import java.util.Arrays;
 public class Labyrinthe {
     public boolean[][] murs; //matrice qui contient les coordonées de murs
     public boolean[][] objets;
+    public boolean[][] barrieres;
     //charactère des différents éléments
     public final static char MUR = '#';
     public final static char PJ = '@';
@@ -21,6 +22,8 @@ public class Labyrinthe {
     public boolean etreObjet(int x, int y){
         return objets[x][y];
     }
+
+    public boolean etreBarriere(int x, int y) { return barrieres[x][y]; }
 
     @Override
     public String toString() {
