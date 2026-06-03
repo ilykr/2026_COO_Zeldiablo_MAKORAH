@@ -14,6 +14,7 @@ public class Labyrinthe {
     public final static char FANT = 'o';
 	public final static char OBJ = '.';
     public final static char BAR = '=';
+    public final static char TROLL = '?';
 
     public boolean etreMur(int x, int y) {
         return murs[x][y];

@@ -43,6 +43,8 @@ public class Chargement {
                         jeu.monstres.add(new Monstre(x,y,3,1));
                     } else if (c == Labyrinthe.FANT) {
                         jeu.monstres.add(new Fantome(x,y, 3, 1));
+                    } else if (c == Labyrinthe.TROLL) {
+                        jeu.monstres.add(new Troll(x, y, 3, 1));
                     } else if (c == Labyrinthe.BAR) {
                         jeu.laby.barrieres[x][y] = true;
                     } else {
