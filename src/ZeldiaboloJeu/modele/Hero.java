@@ -93,7 +93,10 @@ public class Hero extends Personnage {
         }
     }
 
-    public void prendreObjet(Objet o) {
-        inv.add(o);
+    public void prendreObjet(Commande com, Labyrinthe l) {
+        Objet o = new Objet();
+        if (com.recupObjet && (l.etreObjet(this.x,this.y))){
+            inv.add(o);
+        }
     }
 }

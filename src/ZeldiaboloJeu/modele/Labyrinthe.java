@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Labyrinthe {
     public boolean[][] murs; //matrice qui contient les coordonées de murs
-
+    public boolean[][] objets;
     //charactère des différents éléments
     public final static char MUR = '#';
     public final static char PJ = '@';
@@ -14,6 +14,10 @@ public class Labyrinthe {
 
     public boolean etreMur(int x, int y) {
         return murs[x][y];
+    }
+
+    public boolean etreObjet(int x, int y){
+        return objets[x][y];
     }
 
     @Override

@@ -1,0 +1,29 @@
+# Fonctionnalités prévues version 3
+
+- fonctionnalité 1 : Fantôme
+  - descriptif texte : Le labyrinthe dispose d'un nouveau type de monstre : les fantômes
+  - critères de validation :
+    	• Les fantômes peuvent traverser des murs mais pas les autres personnages (les
+	autres monstres ou le héros)
+	• Les autres monstres continuent à être bloqués par des murs.
+	• Les attaques des fantômes fonctionnent de la même manière que les attaques des
+monstres de base.
+  - responsables : MAAYOUFI
+
+- fonctionnalité 2 : Troll
+  - descriptif texte : Les trolls sont un nouveau type de monstre. Un troll se régénère au fur et à mesure
+  - critères de validation :
+    	• Un troll se déplace de la même manière qu'un monstre de base (les murs sont des
+	obstacles).
+	• Si un Troll ne prend aucun dégât pendant un tour de jeu, il regagne un point de vie.
+	• les attaques des trolls fonctionnent de la même manière que les attaques des
+	monstres de base.
+	• Un troll a par défaut 3 points de vie (à adapter).
+  - responsables : AHAMADA
+
+- fonctionnalité 3 : Fin du jeu : mort du héros
+  - descriptif texte : Lorsque le héros n'a plus de points de vie, le jeu s'arrête et la partie est perdue.  - critères de validation :
+    	• Le héros par défaut dispose de 5 points de vie.
+	• Chaque monstre fait 1 point de dégât lorsque le héros se fait attaquer.
+	• Quand le héros meurt, un message de fin est affiché sur la console et le jeu s'arrête.
+  - responsables : 
