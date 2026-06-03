@@ -2,6 +2,9 @@ package ZeldiaboloJeu.modele;
 
 import moteurJeu.Commande;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class Troll extends Monstre{
 
     private int hp;
@@ -13,16 +16,4 @@ public class Troll extends Monstre{
     public Troll(int x, int y, int hp, int atk) { super(x,y,hp,atk);
     }
 
-
-    /**
-     * Méthode qui vérifie si le troll s'est fait attaqué lors du tour
-     * @param
-     */
-
-    public boolean estAttaqué(Commande c){
-        boolean attaqué = false;
-        if (!c.espace) {
-            this.hp++;
-        }
-    }
 }
