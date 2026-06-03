@@ -105,7 +105,17 @@ public class Hero extends Personnage {
         Objet o = new Objet();
         if (com.recupObjet && (l.etreObjet(this.x,this.y))){
             inv.add(o);
+            System.out.println("Le héros a obtenu l'objet "+o.getNom()+".");
+            this.afficherInventaire();
         }
+    }
+
+    public void afficherInventaire(){
+        String ttInv = "Objets dans l'inventaire: ";
+        for (Objet o : inv) {
+            ttInv.concat(o.getNom() + ", ");
+        }
+        System.out.println(ttInv);
     }
 
     public boolean etreMort() {
