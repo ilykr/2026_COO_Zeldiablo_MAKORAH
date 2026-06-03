@@ -50,3 +50,4 @@
 # Bilan
 
 - Quelles fonctionnalités est validée ?
+3 premières, debut de la 4

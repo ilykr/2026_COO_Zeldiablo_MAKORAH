@@ -139,6 +139,11 @@ public class ZeldiaboloJeu implements Jeu {
                                 m.deplacer(move);
                                 m.attaquer(this.perso);
                             }
+                        } else if (m instanceof Troll) {
+                            if (!monstreBloque) {
+                                m.deplacer(move);
+                                m.attaquer(this.perso);
+                            }
                         } else {
                             if (!laby.etreMur(x, y) && !monstreBloque && !laby.etreBarriere(x,y)) {
                                 m.deplacer(move);
