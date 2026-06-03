@@ -1,0 +1,39 @@
+
+- fonctionnalité 1 : inventaire
+  - descriptif texte : Des objets (sans utilité pour le moment) sont disposés dans des cases vides
+  du labyrinthe, lorsque le héros appuie sur la touche d'utilisation ("E" par défaut), il récupère
+  les objets de la case où il se trouve et les ajoute dans son inventaire.
+  - critères de validation :
+    - critère 1 : L'inventaire est de taille innie.
+    - critère 2 : Lorsque le joueur cherche à prendre un objet alors qu'il n'y a rien sur la case où
+            il se trouve, rien ne se passe.
+    - critère 3 : A chaque évolution du jeu, le jeu ache dans la console l'inventaire du héros
+    - critère 4 : Lorsqu'un joueur prend un objet, l'objet disparait du labyrinthe (et n'est plus
+            affiché) mais apparait dans son inventaire.
+    - critère 5 : Les objets sont cachés dans le labyrinthe tant qu'ils sont présents (sous la forme
+    d'un cercle noir)
+  - responsables : Laïni
+
+- fonctionnalité 2 : affichage avec des sprites
+  La fenêtre n'affiche plus des figures de base (rond, ...) mais des sprites représentant
+  les personnages et les objets (http://fr.wikipedia.org/wiki/Sprite_%28jeu_vid%C3%A9o%29).
+  Critères de validation
+  • Les sprites concernent les murs, les monstres et le héros.
+  • Ils sont chargés une fois pour toute au lancement de l'application et ils peuvent
+  être achés dans le JPanel grâce à la méthode drawImage.
+  • Vous pourrez utiliser l'image http://www.qcfdesign.com/?p=354 qui est un en-
+  semble de sprites pour le jeu Desktop Dungeons. Ces sprites sont disposés régu-
+  lièrement dans l'image et sont donc facile à extraire à partir de l'Image.
+  • Il est possible de charger une image (de type BufferedImage en mémoire grâce à
+  la classe ImageIO et la méthode statique read).
+  - responsables : Naim
+
+- fonctionnalité 3 : Mise en place de l'amulette
+  Au lancement du jeu, une amulette est placée sur une case vide du labyrinthe. Le
+  placement de l'amulette est toujours le même et dépend du niveau.
+  Critères de validation
+  • L'amulette ne peut être placée que sur une case vide.
+  • Les monstres et le héros peuvent se situer sur la case de l'amulette.
+  • L'amulette est achée dans le jeu sous la forme d'un cercle jaune sur la case vide
+  où elle se trouve.
+  - responsables : Ilayda

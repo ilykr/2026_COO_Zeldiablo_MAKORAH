@@ -23,6 +23,7 @@ public class Troll extends Monstre{
         boolean attaqué = false;
         if (!c.espace) {
             this.hp++;
-        }
+            return false;
+        } else return true;
     }
 }
