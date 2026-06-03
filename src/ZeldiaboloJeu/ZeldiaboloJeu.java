@@ -106,7 +106,7 @@ public class ZeldiaboloJeu implements Jeu {
         boolean demandeDeplacement = c.gauche || c.droite || c.haut || c.bas;
 
         // si pas de mur
-        if (!laby.etreMur(x, y) && !monstre) {
+        if (!laby.etreMur(x, y) && !monstre && !laby.etreBarriere(x,y)) {
             perso.deplacer(c);
 
             if (demandeDeplacement) {
@@ -131,12 +131,12 @@ public class ZeldiaboloJeu implements Jeu {
                         }
 
                         if (m instanceof Fantome) {
-                            if (!monstreBloque) {
+                            if (!monstreBloque && !laby.etreBarriere(x,y)) {
                                 m.deplacer(move);
                                 m.attaquer(this.perso);
                             }
                         } else {
-                            if (!laby.etreMur(x, y) && !monstreBloque) {
+                            if (!laby.etreMur(x, y) && !monstreBloque && !laby.etreBarriere(x,y)) {
                                 m.deplacer(move);
                                 m.attaquer(this.perso);
                             }
