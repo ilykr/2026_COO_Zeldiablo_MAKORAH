@@ -150,7 +150,14 @@ public class ZeldiaboloJeu implements Jeu {
      * @return
      */
     public boolean etreFini() {
+<<<<<<< HEAD
+        if (perso.etreMort()) {
+            System.out.println("Votre personnage est mort, GAME OVER!");
+            return true;
+        } else return false;
+=======
         return false;
+>>>>>>> e0b7bae3920d02b3ecb324d63582f3dff771d311
     }
 
 
