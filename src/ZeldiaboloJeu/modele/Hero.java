@@ -10,6 +10,7 @@ public class Hero extends Personnage {
     private int x;
     private int y;
     private ArrayList<Objet> inv = new ArrayList<>();
+    boolean sestDeplace;
 
     public Hero(int x, int y, int hp, int atk) {
         this.x = x;
@@ -53,6 +54,8 @@ public class Hero extends Personnage {
         this.y = num;
     }
 
+    public boolean getDeplacement(){return this.sestDeplace;}
+
     public void attaquer(Personnage p, Commande commande) {
         if (commande.espace) {
             boolean adjacent = false;
@@ -79,17 +82,22 @@ public class Hero extends Personnage {
     }
 
     public void deplacer(Commande commande) {
+        sestDeplace = false;
         if (commande.droite) {
             this.x++;
+            sestDeplace = true;
         }
         if (commande.gauche) {
             this.x--;
+            sestDeplace = true;
         }
         if (commande.bas) {
             this.y++;
+            sestDeplace = true;
         }
         if (commande.haut) {
             this.y--;
+            sestDeplace = true;
         }
     }
 

@@ -129,7 +129,11 @@ public class ZeldiaboloJeu implements Jeu {
                                 monstreBloque = true;
                             }
                         }
-
+                        if (m instanceof Troll){
+                            if (perso.getDeplacement()){
+                                m.setHp(+1);
+                            }
+                        }
                         if (m instanceof Fantome) {
                             if (!monstreBloque) {
                                 m.deplacer(move);
