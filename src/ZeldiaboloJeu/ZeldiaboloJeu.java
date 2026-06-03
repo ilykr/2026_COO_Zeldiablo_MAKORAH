@@ -130,9 +130,16 @@ public class ZeldiaboloJeu implements Jeu {
                         monstre = true;
                     }
                 }
-                if (!laby.etreMur(x, y) && !monstre) {
-                    m.deplacer(move);
-                    m.attaquer(this.perso);
+                if (m instanceof Fantome) {
+                    if (!monstre) {
+                        m.deplacer(move);
+                        m.attaquer(this.perso);
+                    }
+                } else {
+                    if (!laby.etreMur(x, y) && !monstre) {
+                        m.deplacer(move);
+                        m.attaquer(this.perso);
+                    }
                 }
             }
         }

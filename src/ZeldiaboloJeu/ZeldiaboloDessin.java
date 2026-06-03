@@ -1,5 +1,6 @@
 package ZeldiaboloJeu;
 
+import ZeldiaboloJeu.modele.Fantome;
 import ZeldiaboloJeu.modele.Hero;
 import ZeldiaboloJeu.modele.Labyrinthe;
 import moteurJeu.DessinJeu;
@@ -55,6 +56,9 @@ public class ZeldiaboloDessin implements DessinJeu {
 
             pixelX = (pos2[0] * largeurCase) + offsetX;
             pixelY = (pos2[1] * hauteurCase) + offsetY;
+            if (jeu.monstres.get(i) instanceof Fantome) {
+                g.setColor(Color.PINK);
+            } else { g.setColor(Color.RED); }
 
             g.fillOval(pixelX, pixelY, largeurPerso, hauteurPerso);
         }
