@@ -103,45 +103,50 @@ public class ZeldiaboloJeu implements Jeu {
             }
         }
 
+        boolean demandeDeplacement = c.gauche || c.droite || c.haut || c.bas;
+
         // si pas de mur
         if (!laby.etreMur(x, y) && !monstre) {
             perso.deplacer(c);
-        }
 
-        for (Monstre m : monstres) {
-            perso.attaquer(m, c);
-        }
-            //deplacement monstres
-        for (Monstre m : monstres) {
-            if (m.getHp() > 0) {
-                monstre = false;
-                Commande move = deplacementRandom();
-                // si action, on calcule avec getSuivant et on change x et y
-                next = getSuivant(m.getX(), m.getY(), move);
-                x = next[0];
-                y = next[1];
+            if (demandeDeplacement) {
+                //deplacement monstres
+                for (Monstre m : monstres) {
+                    if (m.getHp() > 0) {
+                        boolean monstreBloque = false;
+                        Commande move = deplacementRandom();
+                        // si action, on calcule avec getSuivant et on change x et y
+                        next = getSuivant(m.getX(), m.getY(), move);
+                        x = next[0];
+                        y = next[1];
 
-                //verifier si la case suivante est un monstre ou le hero
-                if (perso.getX() == x && perso.getY() == y) {
-                    monstre = true;
-                }
-                for (int i = 0; i < monstres.size(); i++) {
-                    if (monstres.get(i).getX() == x && monstres.get(i).getY() == y) {
-                        monstre = true;
-                    }
-                }
-                if (m instanceof Fantome) {
-                    if (!monstre) {
-                        m.deplacer(move);
-                        m.attaquer(this.perso);
-                    }
-                } else {
-                    if (!laby.etreMur(x, y) && !monstre) {
-                        m.deplacer(move);
-                        m.attaquer(this.perso);
+                        //verifier si la case suivante est un monstre ou le hero
+                        if (perso.getX() == x && perso.getY() == y) {
+                            monstreBloque = true;
+                        }
+                        for (int i = 0; i < monstres.size(); i++) {
+                            if (monstres.get(i).getX() == x && monstres.get(i).getY() == y) {
+                                monstreBloque = true;
+                            }
+                        }
+
+                        if (m instanceof Fantome) {
+                            if (!monstreBloque) {
+                                m.deplacer(move);
+                                m.attaquer(this.perso);
+                            }
+                        } else {
+                            if (!laby.etreMur(x, y) && !monstreBloque) {
+                                m.deplacer(move);
+                                m.attaquer(this.perso);
+                            }
+                        }
                     }
                 }
             }
+        }
+        for (Monstre m : monstres) {
+            perso.attaquer(m, c);
         }
     }
 
