@@ -106,36 +106,42 @@ public class ZeldiaboloJeu implements Jeu {
         // si pas de mur
         if (!laby.etreMur(x, y) && !monstre) {
             perso.deplacer(c);
+        }
 
+        for (Monstre m : monstres) {
+            perso.attaquer(m, c);
+        }
             //deplacement monstres
-            for (Monstre m : monstres) {
-                if (m.getHp() > 0) {
-                    monstre = false;
-                    Commande move = deplacementRandom();
-                    // si action, on calcule avec getSuivant et on change x et y
-                    next = getSuivant(m.getX(), m.getY(), move);
-                    x = next[0];
-                    y = next[1];
+        for (Monstre m : monstres) {
+            if (m.getHp() > 0) {
+                monstre = false;
+                Commande move = deplacementRandom();
+                // si action, on calcule avec getSuivant et on change x et y
+                next = getSuivant(m.getX(), m.getY(), move);
+                x = next[0];
+                y = next[1];
 
-                    //verifier si la case suivante est un monstre ou le hero
-                    if (perso.getX() == x && perso.getY() == y) {
+                //verifier si la case suivante est un monstre ou le hero
+                if (perso.getX() == x && perso.getY() == y) {
+                    monstre = true;
+                }
+                for (int i = 0; i < monstres.size(); i++) {
+                    if (monstres.get(i).getX() == x && monstres.get(i).getY() == y) {
                         monstre = true;
                     }
-                    for (int i = 0; i < monstres.size(); i++) {
-                        if (monstres.get(i).getX() == x && monstres.get(i).getY() == y) {
-                            monstre = true;
-                        }
+                }
+                if (m instanceof Fantome) {
+                    if (!monstre) {
+                        m.deplacer(move);
+                        m.attaquer(this.perso);
                     }
+                } else {
                     if (!laby.etreMur(x, y) && !monstre) {
                         m.deplacer(move);
                         m.attaquer(this.perso);
                     }
                 }
             }
-        }
-
-        for (Monstre m : monstres) {
-            perso.attaquer(m, c);
         }
     }
 
@@ -144,10 +150,14 @@ public class ZeldiaboloJeu implements Jeu {
      * @return
      */
     public boolean etreFini() {
+<<<<<<< HEAD
         if (perso.etreMort()) {
             System.out.println("Votre personnage est mort, GAME OVER!");
             return true;
         } else return false;
+=======
+        return false;
+>>>>>>> e0b7bae3920d02b3ecb324d63582f3dff771d311
     }
 
 

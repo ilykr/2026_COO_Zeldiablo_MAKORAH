@@ -1,9 +1,6 @@
 package ZeldiaboloJeu;
 
-import ZeldiaboloJeu.modele.Hero;
-import ZeldiaboloJeu.modele.Labyrinthe;
-import ZeldiaboloJeu.modele.Monstre;
-import ZeldiaboloJeu.modele.Objet;
+import ZeldiaboloJeu.modele.*;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -43,6 +40,8 @@ public class Chargement {
                     }
                     else if (c == Labyrinthe.MONSTER) {
                         jeu.monstres.add(new Monstre(x,y,3,1));
+                    } else if (c == Labyrinthe.FANT) {
+                        jeu.monstres.add(new Fantome(x,y, 3, 1));
                     } else {
                         throw new FichierIncorrectException("charactere inconnu" + c);
                     }
