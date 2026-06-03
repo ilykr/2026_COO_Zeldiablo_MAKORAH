@@ -26,4 +26,4 @@ monstres de base.
     	• Le héros par défaut dispose de 5 points de vie.
 	• Chaque monstre fait 1 point de dégât lorsque le héros se fait attaquer.
 	• Quand le héros meurt, un message de fin est affiché sur la console et le jeu s'arrête.
-  - responsables : 
+  - responsables : KORHAN

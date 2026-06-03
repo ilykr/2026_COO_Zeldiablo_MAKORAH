@@ -99,4 +99,8 @@ public class Hero extends Personnage {
             inv.add(o);
         }
     }
+
+    public boolean etreMort() {
+        return (this.hp < 1);
+    }
 }
